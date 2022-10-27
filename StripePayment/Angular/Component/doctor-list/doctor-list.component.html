@@ -1,0 +1,310 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 count-list">
+      <h3>{{totalRecords}} matches found - {{searchedLocation}}</h3>
+      
+        
+      
+    </div>
+    <div class="col-lg-3 col-md-4 search-filter">
+      <mat-accordion [multi]="true">
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-filter" aria-hidden="true"></i> Search
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!-- <div class="filter-widget mb-3">
+            <ng-datepicker [(ngModel)]="selectedDate" class="custom-ng-datepicker" [options]="options">
+            </ng-datepicker>
+          </div> -->
+          <div class="filter-widget">
+            
+<!-- <ng-select placeholder="Select Location" [(ngModel)]="selectedLocation" [items]="location" bindLabel="locationName" bindValue="id"></ng-select> -->
+<mat-form-field >
+  <input #prosearchtext matInput  placeholder="Search" >
+  
+</mat-form-field>
+
+<!-- <button  style="margin-left: 25px;" class="search-btnn" (click)="Providersearchtext(prosearchtext.value)">
+  <i class="fa fa-search" aria-hidden="true" ></i>
+</button> 
+             -->
+       
+          </div>
+        </mat-expansion-panel> 
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-user-md" aria-hidden="true"></i> Select Speciality
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column">
+
+              
+              <ng-scrollbar>
+                <div [ngStyle]="{ 'height': '130px' }">
+                  <ng-container *ngFor="let spl of speciality | slice:minIndex:maxIndex ;let i=index">
+                    <mat-checkbox [checked]="isKeySet(checkedSpecialities,spl.id)" (change)="onSpecialityChange(spl,$event)">
+                      {{spl.value}}
+                    </mat-checkbox>
+                  </ng-container>
+                </div>
+              </ng-scrollbar>
+              <div class="d-flex justify-content-between">
+                <span class="more-widget" *ngIf="maxIndex >10 && speciality.length>10" (click)="maxIndex = (maxIndex - 10)">Less...</span>
+                <span class="more-widget" *ngIf="maxIndex < speciality.length" (click)="maxIndex = (maxIndex + 10)">More...</span>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-calendar-o" aria-hidden="true"></i> Select Date
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column">
+              <ng-datepicker [(ngModel)]="selectedDate" (ngModelChange)="onDateChange()" name="date" class="custom-ng-datepicker"   
+            [options]="options"   ></ng-datepicker>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-stethoscope" aria-hidden="true"></i> Select Services
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column">
+              <ng-scrollbar>
+                <div [ngStyle]="{ 'height': '300px' }">
+                  <ng-container *ngFor="let srv of services | slice:minIndexService:maxIndexService ;let i=index">
+                    <mat-checkbox [checked]="isKeySet(checkedServices,srv.id)" (change)="onServiceChange(srv,$event)">
+                      {{srv.value}}
+                    </mat-checkbox>
+                  </ng-container>
+                </div>
+              </ng-scrollbar>
+              <div class="d-flex justify-content-between">
+                <span class="more-widget" *ngIf="maxIndexService > 10 && services.length" (click)="maxIndexService = (maxIndexService - 10)">Less...</span>
+                <span class="more-widget" *ngIf="maxIndexService < services.length" (click)="maxIndexService = (maxIndexService + 10)">More...</span>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-venus-mars" aria-hidden="true"></i> Gender
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column">
+              <ng-container *ngFor="let g of masterGender">
+                <mat-checkbox [checked]="isKeySet(checkedGenders,g.id)" (change)="onGenderChange(g,$event)">
+                  {{g.gender}}
+                </mat-checkbox>
+              </ng-container>
+            </div>
+          </div>
+        </mat-expansion-panel>    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-money" aria-hidden="true"></i> Consultation Fees
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column">
+              <mat-checkbox id=11 (change)="onConsultationFeeChange($event)">
+                Less then USD 100
+              </mat-checkbox>
+              <mat-checkbox id=12 (change)="onConsultationFeeChange($event)">
+                USD 100 - 200
+              </mat-checkbox>
+              <mat-checkbox id=13 (change)="onConsultationFeeChange($event)">
+                USD 200 - 300
+              </mat-checkbox>
+              <mat-checkbox id=14 (change)="onConsultationFeeChange($event)">
+                More then USD 300
+              </mat-checkbox>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i> Clients Review
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="filter-widget">
+            <div class="d-flex flex-column rating">
+              <mat-checkbox id=5 (change)="onReviewRatingChange($event)">
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <span> (5)</span>
+              </mat-checkbox>
+              <mat-checkbox id=4 (change)="onReviewRatingChange($event)">
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span> (4)</span>
+              </mat-checkbox>
+              <mat-checkbox id=3 (change)="onReviewRatingChange($event)">
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span> (3)</span>
+              </mat-checkbox>
+              <mat-checkbox id=2 (change)="onReviewRatingChange($event)">
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span> (2)</span>
+              </mat-checkbox>
+              <mat-checkbox id=1 (change)="onReviewRatingChange($event)">
+                <i class="fa fa-star filled" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span> (1)</span>
+              </mat-checkbox>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-card class="mt-3 mb-3">
+        <mat-card-content>
+          <div class="filter-btn">
+            <!-- <button mat-raised-button color="primary" (click)="applyFilter()" [disabled]="seaching">{{!seaching ? 'Search Filters' : 'Searching...'}}</button> -->
+            <button mat-raised-button (click)="clearFilter()" [disabled]="clearing">{{!clearing ? 'Clear Filters' : 'Clearing...'}}</button>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+
+
+    <div class="col-lg-9 col-md-8">
+      <div class="row" *ngIf="providers.length">
+        <div class="col-12 d-flex justify-content-between mb-3">
+          <div class="list-grid-btn">
+            <i [class.active]="doctorWidgetClass==='col-sm-12 list-profile'" class="fa fa-bars pr-2" aria-hidden="true" (click)="doctorWidgetClass='col-sm-12 list-profile'"></i>
+            <i [class.active]="doctorWidgetClass==='col-sm-6 grid-profile'" class="fa fa-th-large" aria-hidden="true" (click)="doctorWidgetClass='col-sm-6 grid-profile'"></i>
+          </div>
+          <div class="sort-by">
+            <span>Sort by : </span>
+            <ng-select class="custom-ng-select" placeholder="Select" [items]="sortby" (change)="onSortChange($event)"></ng-select>
+          </div>
+        </div>
+        <div class="{{doctorWidgetClass}}" *ngFor="let provider of providers">
+          <!-- <div class="doctor-widget"> -->
+            <mat-card>
+              <mat-card-content>
+                <div class="doc-info">
+                  <div class="doc-info-left">
+                    <div class="doctor-img">
+                      <img class="img-fluid profile-img" src="{{provider.providerImageThumbnail || '../../../assets/img/noimage.png'}}" alt="doctor">
+                    </div>
+                    <div class="doc-info-cont">
+                      <h4 class="doc-name"><a (click)="redirectToProfilePage(provider.providerId)">Dr. {{provider.fullName}}</a></h4>
+                      <!-- <p class="doc-speciality" *ngFor="let spl of provider.specialities">{{spl.speciality}}</p> -->
+                      <h5 class="doc-department"><span *ngFor="let spl of provider.specialities">{{spl.speciality}}</span></h5>
+
+
+                      <div>
+                        {{provider.aboutMe | slice:0:100 }} <span *ngIf="provider.aboutMe.length>100"> ...</span>
+                        <a *ngIf="provider.aboutMe.length>100"  (click)="redirectToProfilePage(provider.providerId)" >Read More</a> 
+                    </div>
+
+
+
+
+
+                      <div>
+
+                        <star-rating value="{{provider.average}}" totalstars="5" checkedcolor="#f4c150" uncheckedcolor="#e5e5e5" size="18px" readonly="true"></star-rating>
+
+                        <!-- <i class="fa fa-star filled" aria-hidden="true"></i>
+                        <i class="fa fa-star filled" aria-hidden="true"></i>
+                        <i class="fa fa-star filled" aria-hidden="true"></i>
+                        <i class="fa fa-star filled" aria-hidden="true"></i>
+                        <i class="fa fa-star"></i> -->
+                        <span *ngIf="provider.totalReviews>0" class="d-inline-block average-rating">({{provider.totalReviews}})</span>
+                      </div>
+                      <div class="cfee">Fee : {{provider.payRate | currency:'USD':'symbol-narrow'}}
+                      </div>
+
+                      <div class="clinic-services">
+                        <span *ngFor="let taxonomy of provider.taxonomies">{{taxonomy.taxonomy}}</span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- <div class="doc-info-right">
+                    <div class="clini-infos">
+                      <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> {{provider.phoneNumber}}</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:sofiabrient_maxhospital@gmail.com?Subject=Hello%20again"
+                            target="_top">{{provider.email}}</a></li>
+                        <li class="addres"><i class="fa fa-map-marker" aria-hidden="true"></i> {{provider.address}} <a herf="#" class="direction">Get Directions.</a></li>
+                      </ul>
+                    </div>
+
+                  </div> -->
+                  <div class="clinic-booking">
+                    <div class="chk-availability">
+                      <label><i class="fa fa-calendar-o" aria-hidden="true"></i> Availability</label>
+                      <div>
+                        <button class="{{avail.class}}" title='{{avail.title}}' [disabled]="avail.disabled" type="text" *ngFor="let avail of provider.availabilities | unique:avail">{{avail.day | slice : 0 :3}} </button>
+                        <!-- <label><i class="fa fa-clock-o" aria-hidden="true"></i> {{avail.startTime | date : 'shortTime'}} - {{avail.endTime | date : 'shortTime'}}</label> -->
+                        <!-- <button type="text">Tue</button>
+                        <button type="text">Wed</button>
+                        <button class="active" type="text">Thu</button>
+                        <button type="text">Fri</button>
+                        <button class="active" type="text">Sat</button>
+                        <button type="text">Sun</button> -->
+                      </div>
+                    </div> 
+                    <div class="clinic-btn">
+                      <a href="javascript:void(0)" class="link-btn" (click)="redirectToProfilePage(provider.providerId)">View Profile</a>
+                      <button mat-raised-button color="primary" (click)="bookAppointment(provider.staffId,provider.providerId)">Book Now</button>
+                      <!-- <button mat-raised-button color="primary" (click)="bookFreeAppointment(provider.staffId,provider.providerId)">Free Booking</button> -->
+                    </div>
+
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          <!-- </div> -->
+
+        </div>
+
+      </div>
+
+      <div *ngIf="!providers.length && !showLoader" class="alert alert-danger">Oops...!! No provider according to your search, if it's not too much trouble change your filters to discover providers.</div>
+      <div class="text-center" *ngIf="showLoader" style="display:none;"><span class="more-load"></span></div>
+    </div>
+  </div>
+</div>

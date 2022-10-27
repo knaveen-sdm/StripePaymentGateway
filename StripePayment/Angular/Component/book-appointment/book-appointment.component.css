@@ -1,0 +1,291 @@
+.mat-dialog-container {
+  padding: 0px !important;
+}
+.appt-drpanel {
+  border-right: 2px dotted #ddd;
+}
+.drpanel-block {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 2px dotted #ddd;
+  font-family: "Poppins", sans-serif;
+}
+.drpanel-block .doctor-img {
+  margin: 0px auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  /* display: flex; */
+  /* flex: 0 150; */
+}
+.drpanel-block .doc-name {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #000;
+}
+.drpanel-block .doc-name a {
+  color: #000;
+}
+
+.drpanel-block .doc-department {
+  color: #0fd8ef;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.rating {
+  list-style: none;
+  margin: 0 0 7px;
+  padding: 0;
+  width: 100%;
+}
+.rating i {
+  font-size: 14px;
+}
+.rating i {
+  color: #dedfe0;
+}
+.rating i.filled {
+  color: #f4c150;
+}
+.rating span {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+.appt-drpanel .clini-infos {
+  margin: 15px 0px;
+}
+.appt-drpanel .clini-infos ul {
+  font-size: 13px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.appt-drpanel .clini-infos ul li {
+  margin: 10px 0px;
+  font-weight: 500;
+  display: block;
+  color: #4e4852;
+  padding: 0px;
+}
+.appt-drpanel .clini-infos ul li label {
+  display: block;
+  margin: 0px;
+  line-height: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.84);
+}
+.appt-drpanel .clini-infos ul li a {
+  color: #4e4852;
+}
+.appt-drpanel .clini-infos ul li span {
+  font-weight: 400;
+}
+.appointment-panel {
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.appointment-panel .title {
+  color: #0fd8ef;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.appointment-panel small {
+  display: block;
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 11px;
+  margin: 0px;
+}
+.appointment-panel i {
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 16px;
+  cursor: pointer;
+}
+.appointment-content {
+  padding: 15px;
+}
+.book-appt-type {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 500;
+}
+.book-appt-type label {
+  margin: 0px 10px 0px 0px;
+  font-weight: 400;
+  font-size: 13px;
+  width: 122px;
+}
+.book-appt-type button {
+  margin-right: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 13px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.book-appt-type .mat-radio-button label {
+  font-weight: 500;
+}
+.book-appt-type button.active {
+  background-color: #0fd8ef;
+  border-color: #0fd8ef;
+  color: #fff;
+}
+
+.book-appointment-slot {
+  border-bottom: solid 1px #d3efec;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
+.highlight-dates {
+  background: red;
+  border-radius: 100%;
+}
+.appointment-panel .mat-horizontal-content-container {
+  padding: 0px;
+}
+.mat-horizontal-stepper-header:first-child {
+  padding: 0px 24px 0px 0px;
+}
+.appointment-panel .mat-horizontal-stepper-header {
+  height: auto;
+}
+.appointment-panel .mat-step-header:hover,
+.cdk-focused,
+.cdk-mouse-focused {
+  background-color: transparent;
+}
+.book-appt-type label.mat-radio-label {
+  width: auto;
+}
+.appointment-panel .mat-horizontal-stepper-header-container {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.book-appt-type .mat-radio-container,
+.book-appt-type .mat-radio-inner-circle,
+.book-appt-type .mat-radio-outer-circle {
+  width: 15px;
+  height: 15px;
+}
+.appointment-panel .ng-scrollbar-view {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.timing-slot li {
+  display: inline;
+}
+.timing-slot button {
+  border: 1px solid #63d891;
+  border-radius: 0;
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 10px;
+  height: auto;
+  margin: 10px 10px 10px 0px;
+  line-height: normal;
+  color: #63d891;
+  cursor: pointer;
+}
+
+.timing-slot .reserved-slot button:disabled {
+  border-color: #0fd8ef;
+  color: #fff;
+  background-color: #0fd8ef;
+  cursor: not-allowed;
+}
+.timing-slot .unavail-slot button:disabled {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+}
+.timing-slot .selected-slot button:disabled {
+  background-color: #63d891;
+  color: #fff;
+  cursor: not-allowed;
+}
+.indicate-slot {
+  display: flex;
+  align-items: center;
+}
+
+.indicate-slot label {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+.indicate-slot label i {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+}
+.indicate-slot label:first-child,
+.indicate-slot label:first-child i {
+  color: #63d891;
+}
+.indicate-slot label:nth-child(2),
+.indicate-slot label:nth-child(2) i {
+  color: #63d891;
+}
+.indicate-slot label:nth-child(3),
+.indicate-slot label:nth-child(3) i {
+  color: #0fd8ef;
+}
+.indicate-slot label:nth-child(4) i {
+  color: rgba(0, 0, 0, 0.3);
+}
+.indicate-slot label:nth-child(4) {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app-booked {
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.appointment-panel .mat-stepper-horizontal-line {
+  flex: 0;
+}
+
+.pay-step h3 {
+  margin: 0px;
+  font-size: 16px;
+  margin: 10px 0px 0px;
+  line-height: 20px;
+}
+.pay-step h6 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 15px 0px 20px;
+  line-height: 18px;
+}
+
+@media(max-width:767px){
+  .timing-slot ul li{
+    width:50%;
+    display: inline-block;
+  }
+  .timing-slot button{ width:90%; margin:10px 0; font-size: 10px;}
+}
+
+@media(max-width:575px){
+  .book-appt-type { flex-direction: column; align-items: flex-start;}
+ .appointment-content  .mat-horizontal-stepper-header-container{ flex-direction: column; align-items: flex-start;}
+ .appointment-content  .mat-horizontal-stepper-header{ padding:0 !important; margin-bottom: 5px;}
+ .appointment-content .mat-stepper-horizontal-line{ border:0px !important}
+}
